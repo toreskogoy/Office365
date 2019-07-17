@@ -1,6 +1,7 @@
 #Office 365 Report
 
 ##Included features
+
     - Device Report
         - Device name
         - Device user
