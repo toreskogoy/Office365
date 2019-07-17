@@ -5,7 +5,7 @@ $ExchangeSession = New-PSSession -ConfigurationName Microsoft.Exchange -Connecti
 Import-PSSession  $ExchangeSession | out-null
 
 ####################################
-#        Share Mailbox             #
+#        Shared Mailbox            #
 ####################################
 
 #Add new shared mailbox
