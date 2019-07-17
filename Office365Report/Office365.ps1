@@ -53,7 +53,7 @@ $PATH = Join-path $ReportPath -ChildPath $PATH
 
 
 #Connecting to Office 365
-$Credential = Import-Clixml -Path 'C:\Powershell Scripts\Office 365\servere_no.cred'
+$Credential = Get-Credential
 Connect-MsolService -Credential $Credential
 
 #Connecting to AzureAD
