@@ -4,6 +4,10 @@ $Credential = Get-Credential
 $ExchangeSession = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri "https://outlook.office365.com/powershell-liveid/" -Credential $credential -Authentication "Basic" -AllowRedirection 
 Import-PSSession  $ExchangeSession | out-null
 
+####################################
+#        Share Mailbox             #
+####################################
+
 #Add new shared mailbox
 New-Mailbox -Name "Post" -Shared -Alias "Post" -PrimarySmtpAddress post@domain.com
 
@@ -12,3 +16,7 @@ Add-MailboxPermission -Identity "post@domain.com" -User "firstname lastname" -Ac
 
 #View Full Access permissons for sbared mailbox
 Get-MailboxPermission -Identity "post@domain.com" | Where-Object { ($_.IsInherited -eq $false) -and -not ($_.User -like 'NT AUTHORITY\SELF') } | Select-Object Identity, user, Accessrights
+
+#Remove permissions from shared mailbox
+Remove-MailboxPermission -Identity "Post@domain.com" -User "Tore Skogøy" -AccessRights FullAccess
+
