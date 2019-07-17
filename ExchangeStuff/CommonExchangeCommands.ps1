@@ -18,5 +18,5 @@ Add-MailboxPermission -Identity "post@domain.com" -User "firstname lastname" -Ac
 Get-MailboxPermission -Identity "post@domain.com" | Where-Object { ($_.IsInherited -eq $false) -and -not ($_.User -like 'NT AUTHORITY\SELF') } | Select-Object Identity, user, Accessrights
 
 #Remove permissions from shared mailbox
-Remove-MailboxPermission -Identity "Post@domain.com" -User "Tore Skogøy" -AccessRights FullAccess
+Remove-MailboxPermission -Identity "Post@domain.com" -User "firstname lastname" -AccessRights FullAccess
 
